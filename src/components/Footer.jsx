@@ -14,12 +14,21 @@ const Footer = () => {
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/aaryan-singh"
+          href="https://www.linkedin.com/in/aaryansi/"
           className="hover:text-white"
           target="_blank"
           rel="noopener noreferrer"
         >
           LinkedIn
+        </a>
+
+        <a
+          href=""
+          className="hover:text-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          singha9@rose-hulman.edu
         </a>
       </div>
     </footer>

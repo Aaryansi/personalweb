@@ -1,32 +1,56 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-scroll';
-import { gsap } from 'gsap';
-import Typewriter from 'typewriter-effect';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import Typewriter from "typewriter-effect";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const heroRef = useRef(null);
   const contentRef = useRef(null);
-
-  
+  const scrollIndicatorRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
 
-    // Background animation (fade in)
+    // Background fade-in
     tl.fromTo(
       heroRef.current,
       { opacity: 0 },
-      { opacity: 1, duration: 1.5, ease: 'power3.out' }
+      { opacity: 1, duration: 1.5, ease: "power3.out" }
     );
 
-    // Content animation (slide up)
+    // Content fade-in staggered
     tl.fromTo(
-      contentRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-      '-=1' // Overlap with the previous animation
+      contentRef.current.children,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", stagger: 0.2 },
+      "-=1"
     );
+
+    // Scroll indicator bounce effect
+    gsap.to(scrollIndicatorRef.current, {
+      y: 10,
+      repeat: -1,
+      yoyo: true,
+      duration: 1.5,
+      ease: "power1.inOut",
+    });
+
+    // Hide scroll indicator when scrolling
+    gsap.to(scrollIndicatorRef.current, {
+      opacity: 0,
+      y: -20,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "top -30%",
+        scrub: true,
+      },
+    });
   }, []);
 
   return (
@@ -37,14 +61,14 @@ const Hero = () => {
       {/* Lottie Background */}
       <div className="absolute inset-0 z-0">
         <DotLottieReact
-          src="https://lottie.host/4a7d0e86-0f48-48a6-a57d-f3197a0d19f0/NvNEmwBNEa.lottie" // Lottie animation
+          src="https://lottie.host/4a7d0e86-0f48-48a6-a57d-f3197a0d19f0/NvNEmwBNEa.lottie"
           loop
           autoplay
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: 0.4,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.2,
           }}
         />
       </div>
@@ -58,7 +82,7 @@ const Hero = () => {
         <div className="text-4xl md:text-5xl font-bold mb-6 font-stylish">
           <Typewriter
             options={{
-              strings: ["Hi! I'm Aaryan!", 'Welcome to my website!'],
+              strings: ["Hi! I'm Aaryan!", "Welcome to my website!"],
               autoStart: true,
               loop: true,
               delay: 75,
@@ -66,18 +90,12 @@ const Hero = () => {
           />
         </div>
 
+        {/* Subtitle */}
         <p className="text-lg md:text-xl text-gray-300 mb-8 font-light">
           Please scroll down to learn more about me and my work.
         </p>
 
-        <Link
-          to="about"
-          smooth={true}
-          duration={1000}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full transition transform hover:scale-105 cursor-pointer"
-        >
-          Learn More
-        </Link>
+        
       </div>
     </section>
   );

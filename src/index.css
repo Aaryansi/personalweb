@@ -6,6 +6,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 
 /* Smooth Fade-In Animation */
 @keyframes fadeIn {
@@ -175,43 +181,34 @@ button:hover {
 
 
 
-  .floating-navbar {
-    position: fixed;
-    bottom: 20px; /* Keep it floating at the bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999; /* Super high value to ensure it's above everything */
-    backdrop-filter: blur(10px); /* Glassmorphic Effect */
-    background: rgba(255, 255, 255, 0.1); /* Translucent background */
-    border-radius: 15px;
-    padding: 10px 25px;
-    display: flex;
-    gap: 25px;
-    box-shadow: 0 0 20px rgba(173, 216, 230, 0.5); /* Luminous glow effect */
-  }
-  
-  /* Glow effect */
-  .floating-navbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 15px;
-    padding: 3px;
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff0000, #00ff00);
-    -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
-    mask-composite: exclude;
-    mask-composite: exclude;
-  }
-  
-  /* Navbar links */
-  .floating-navbar a {
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .floating-navbar a:hover {
-    color: cyan;
-    transform: scale(1.1);
-  }
+/* Social Links - Neon Glow Effect */
+.neon-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Text Glow on Hover */
+.neon-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Animated Underline Effect */
+.neon-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+/* Expand Underline from Left to Right on Hover */
+.neon-link:hover::after {
+  width: 100%;
+  opacity: 1;
+}

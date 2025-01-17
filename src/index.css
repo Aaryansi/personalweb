@@ -1,0 +1,217 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fixed {
+    position: fixed;
+    z-index: 10;
+  }
+  
+  .right-0 {
+    right: 0;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+  .w-80 {
+    width: 20rem; /* Adjust based on desired width */
+  }
+  
+  
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease forwards;
+  }
+  
+.font-stylish {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2563eb; /* Blue */
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth Opacity Transition */
+.transition-opacity {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .opacity-0 {
+    opacity: 0;
+  }
+  
+  .opacity-100 {
+    opacity: 1;
+  }
+
+  /* Smooth Opacity Transition */
+.transition-opacity {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .opacity-0 {
+    opacity: 0;
+  }
+  
+  .opacity-100 {
+    opacity: 1;
+  }
+  
+  /* Text Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease forwards;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 2s ease forwards;
+  }
+  
+  
+  /* Text Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease forwards;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 2s ease forwards;
+  }
+  
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+    background-size: 200% 200%;
+  }
+  
+  /* Text Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #about {
+    position: relative;
+    padding-bottom: 120px; /* Prevents content from reaching navbar */
+  }
+  
+  
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease forwards;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 2s ease forwards;
+  }
+
+
+
+  .floating-navbar {
+    position: fixed;
+    bottom: 20px; /* Keep it floating at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999; /* Super high value to ensure it's above everything */
+    backdrop-filter: blur(10px); /* Glassmorphic Effect */
+    background: rgba(255, 255, 255, 0.1); /* Translucent background */
+    border-radius: 15px;
+    padding: 10px 25px;
+    display: flex;
+    gap: 25px;
+    box-shadow: 0 0 20px rgba(173, 216, 230, 0.5); /* Luminous glow effect */
+  }
+  
+  /* Glow effect */
+  .floating-navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 3px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff0000, #00ff00);
+    -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+    mask-composite: exclude;
+    mask-composite: exclude;
+  }
+  
+  /* Navbar links */
+  .floating-navbar a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .floating-navbar a:hover {
+    color: cyan;
+    transform: scale(1.1);
+  }

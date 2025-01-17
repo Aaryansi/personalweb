@@ -1,0 +1,52 @@
+@keyframes neonGlow {
+  0% { box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.4), 0px 0px 20px rgba(0, 255, 255, 0.3); }
+  25% { box-shadow: 0px 0px 15px rgba(255, 0, 127, 0.5), 0px 0px 25px rgba(0, 255, 170, 0.4); }
+  50% { box-shadow: 0px 0px 20px rgba(255, 85, 0, 0.6), 0px 0px 30px rgba(0, 255, 85, 0.5); }
+  75% { box-shadow: 0px 0px 15px rgba(170, 0, 255, 0.5), 0px 0px 25px rgba(0, 170, 255, 0.4); }
+  100% { box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.4), 0px 0px 20px rgba(0, 255, 255, 0.3); }
+}
+
+/* Floating Glassmorphic Navbar */
+.floating-navbar {
+  position: fixed;
+  bottom: 20px; /* Floating at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999 !important; /* Ensures it overlays all sections */
+  backdrop-filter: blur(10px); /* Glass effect */
+  background: rgba(255, 255, 255, 0.05); /* Lighter translucent background */
+  border-radius: 40px;
+  padding: 10px 20px; /* Smaller size */
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+  animation: neonGlow 3s infinite alternate ease-in-out;
+}
+
+/* Navbar Glow Effect (No Border, Just Background Light) */
+/* .floating-navbar::before {
+  content: "";
+  position: absolute;
+  inset: -10px; /* Expands the glow beyond the navbar */
+  /* border-radius: 50px;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.15), rgba(0, 0, 0, 0));
+  filter: blur(15px); /* Adjust the glow intensity */
+  /* opacity: 0.8; /* Set glow strength */
+/* } */ 
+
+/* Navbar Links */
+.floating-navbar a {
+  color: white;
+  font-size: 16px; /* Reduced text size */
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  padding: 8px 16px; /* Smaller padding */
+  border-radius: 15px;
+}
+
+/* Hover Effect */
+.floating-navbar a:hover {
+  color: cyan;
+  transform: scale(1.05);
+}

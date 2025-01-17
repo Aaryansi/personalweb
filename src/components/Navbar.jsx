@@ -4,7 +4,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [bottomSpacing, setBottomSpacing] = useState(35); // Default floating height
-  const [isAboveFooter, setIsAboveFooter] = useState(false);
+  //const [isAboveFooter, setIsAboveFooter] = useState(false);
   const [activeLink, setActiveLink] = useState(null); // Store active link
   const [isHovered, setIsHovered] = useState(false); // Detect hover state
 
